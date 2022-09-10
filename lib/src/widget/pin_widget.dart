@@ -58,6 +58,9 @@ class PinInputTextField extends StatefulWidget {
   /// Same as [TextField]'s autofillHints
   final Iterable<String>? autofillHints;
 
+  /// Same as [TextField]'s scrollPadding
+  final EdgeInsets scrollPadding;
+
   /// The cursor of the pin widget, the default is disabled.
   final Cursor cursor;
 
@@ -79,6 +82,7 @@ class PinInputTextField extends StatefulWidget {
     this.enableInteractiveSelection = false,
     this.toolbarOptions,
     this.autofillHints,
+    this.scrollPadding = const EdgeInsets.all(20.0),
     Cursor? cursor,
   })  :
 
@@ -242,6 +246,8 @@ class _PinInputTextFieldState extends State<PinInputTextField>
       child: TextField(
         /// Actual textEditingController.
         controller: _effectiveController,
+
+        scrollPadding: widget.scrollPadding,
 
         /// Fake the text style.
         style: TextStyle(
